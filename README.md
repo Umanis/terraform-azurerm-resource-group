@@ -12,7 +12,7 @@ Resource naming is based on the Microsoft CAF naming convention best practices. 
 ```hcl
 
 module "umanis_tagging" {
-  source = <<path_to_module>>
+  source = "Umanis/tags/azurerm"
 
   location          = "France Central"
   client            = "XY2"
@@ -23,7 +23,7 @@ module "umanis_tagging" {
 }
 
 module "umanis_naming" {
-  source = <<path_to_module>>
+  source = "Umanis/naming/azurerm"
 
   location    = "France Central"
   client      = "XY2"
@@ -33,13 +33,14 @@ module "umanis_naming" {
 }
 
 module "umanis_resource_group" {
-  source = <<path_to_module>>
+  source = "Umanis/resource-group/azurerm"
 
   tags         = module.umanis_tagging.tags
-  location     = var.location
+  location     = "France Central"
   description  = "Test resource group"
   caf_prefixes = module.umanis_naming.resource_group_prefixes
 }
+
 
 ```
 <!-- BEGIN_TF_DOCS -->
@@ -48,15 +49,8 @@ module "umanis_resource_group" {
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.15.0 |
-| <a name="requirement_azurecaf"></a> [azurecaf](#requirement\_azurecaf) | ~> 1.2.5 |
+| <a name="requirement_azurecaf"></a> [azurecaf](#requirement\_azurecaf) | >= 1.2.5 |
 | <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | >=2.62.0 |
-
-## Providers
-
-| Name | Version |
-|------|---------|
-| <a name="provider_azurecaf"></a> [azurecaf](#provider\_azurecaf) | 1.2.5 |
-| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 2.70.0 |
 
 ## Inputs
 
@@ -79,6 +73,7 @@ module "umanis_resource_group" {
 
 ## Related documentation
 
-Terraform Azure resource group documentation: [terraform.io/docs/providers/azurerm/r/resource_group.html](https://www.terraform.io/docs/providers/azurerm/r/resource_group.html)
+Terraform Azure resource group documentation: [https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group)
 
-Terraform Azure CAF Naming documentation: [https://registry.terraform.io/providers/aztfmod/azurecaf/latest/docs/resources/azurecaf_name](https://registry.terraform.io/providers/aztfmod/azurecaf/latest/docs/resources/azurecaf_nameV)
+Terraform Azure CAF Naming documentation: [https://registry.terraform.io/providers/aztfmod/azurecaf/latest/docs/resources/azurecaf_name](https://registry.terraform.io/providers/aztfmod/azurecaf/latest/docs/resources/azurecaf_name)
+
