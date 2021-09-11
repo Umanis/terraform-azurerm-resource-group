@@ -25,3 +25,9 @@ variable "caf_prefixes" {
   default     = []
   description = "Prefixes to use for caf naming."
 }
+
+variable "name_separator" {
+  type        = string
+  description = "Separator for CAF prefixes in name."
+  default     = "-"
+}

@@ -61,6 +61,7 @@ module "umanis_resource_group" {
 | <a name="input_caf_prefixes"></a> [caf\_prefixes](#input\_caf\_prefixes) | Prefixes to use for caf naming. | `list(string)` | `[]` | no |
 | <a name="input_custom_name"></a> [custom\_name](#input\_custom\_name) | If defined, resource group custom name. | `string` | `""` | no |
 | <a name="input_description"></a> [description](#input\_description) | Resource group description. | `string` | `""` | no |
+| <a name="input_name_separator"></a> [name\_separator](#input\_name\_separator) | Separator for CAF prefixes in name. | `string` | `"-"` | no |
 
 ## Outputs
 
